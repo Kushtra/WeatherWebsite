@@ -61,16 +61,6 @@ app.get('/weather', (req, res) => {
   });
 });
 
-/* app.get('/json', (req, res) => {
-  res.send([{
-    name: 'Owner',
-    age: 20
-  },{
-    name: 'Co-owner',
-    age: 21
-  }]);
-}); */
-
 app.get('*', (req, res) => {
   res.render('404', {
     title: 'ERROR'
