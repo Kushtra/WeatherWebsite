@@ -1,4 +1,4 @@
-const forecast = require('./utils/whether');
+const forecast = require('./utils/weather');
 const geolocation = require('./utils/geocode');
 const days = require('./utils/weekday');
 const express = require('express');
