@@ -1,5 +1,6 @@
 const forecast = require('./utils/whether');
 const geolocation = require('./utils/geocode');
+const days = require('./utils/weekday');
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
@@ -46,14 +47,44 @@ app.get('/weather', (req, res) => {
     if(error){
       return res.send({error});
     }
-    forecast(latitude, longitude, (error, {temperature, summary}) => {
+    forecast(latitude, longitude, (error, {temperature, summary, day1min, day1max, day1sum, day2min, day2max, day2sum, day3min, day3max, day3sum, day4min, day4max, day4sum, day5min, day5max, day5sum, day6min, day6max, day6sum, }) => {
       if(error){
         return res.send({error});
       }
+      let datetime = new Date();
+      const today = datetime.getDay();
+      const day2name = days(today+2);
+      const day3name = days(today+3);
+      const day4name = days(today+4);
+      const day5name = days(today+5);
+      const day6name = days(today+6);
       res.send({
         location,
         temperature,
-        summary
+        summary,
+        day1min,
+        day1max,
+        day1sum,
+        day2name,
+        day2min,
+        day2max,
+        day2sum,
+        day3name,
+        day3min,
+        day3max,
+        day3sum,
+        day4name,
+        day4min,
+        day4max,
+        day4sum,
+        day5name,
+        day5min,
+        day5max,
+        day5sum,
+        day6name,
+        day6min,
+        day6max,
+        day6sum
       });
     });
   });

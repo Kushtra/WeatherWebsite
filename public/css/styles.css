@@ -11,7 +11,7 @@ body {
   min-height: 100vh;
 }
 
-header{
+header {
   margin-top: 16px;
   margin-bottom: 48px;
 }
@@ -45,6 +45,11 @@ button {
   background: #0d34b5;
   color: white;
   padding: 8px;
+}
+
+#message2 {
+  margin-bottom: 8px;
+  padding-bottom: 16px;
 }
 
 .potrait {
