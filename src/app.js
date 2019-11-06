@@ -17,8 +17,6 @@ hbs.registerPartials(partialsPath);
 
 app.use(express.static(publicPath));
 
-//app = express     get = type (moze bit put get delete)
-
 app.get('', (req, res) => {
   res.render('index');
 });
@@ -36,7 +34,7 @@ app.get('/help', (req, res) => {
     helpText: 'Is this text helping?'
   });
 });
-//start
+
 app.get('/weather', (req, res) => {
   if(!req.query.adress){
     return res.send({
