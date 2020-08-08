@@ -30,12 +30,12 @@ weatherForm.addEventListener('submit', (e) => {
       } else {
         messageOne.textContent = ('Temperature in ' + data.location + ' is ' + data.temperature + '°C.');
         messageTwo.textContent = data.summary;
-        day1.textContent = ('Tomorrow' + punch + 's highest temperature is ' + data.day1max + '°C and lowest is ' + data.day1min + '°C. ' + data.day1sum);
-        day2.textContent = (data.day2name + punch + 's highest temperature is ' + data.day2max + '°C and lowest is ' + data.day2min + '°C. ' + data.day2sum);
-        day3.textContent = (data.day3name + punch + 's highest temperature is ' + data.day3max + '°C and lowest is ' + data.day3min + '°C. ' + data.day3sum);
-        day4.textContent = (data.day4name + punch + 's highest temperature is ' + data.day4max + '°C and lowest is ' + data.day4min + '°C. ' + data.day4sum);
-        day5.textContent = (data.day5name + punch + 's highest temperature is ' + data.day5max + '°C and lowest is ' + data.day5min + '°C. ' + data.day5sum);
-        day6.textContent = (data.day6name + punch + 's highest temperature is ' + data.day6max + '°C and lowest is ' + data.day6min + '°C. ' + data.day6sum);
+        day1.textContent = ('Tomorrow' + punch + 's highest temperature is ' + data.week[0].temperatureHigh + '°C and lowest is ' + data.week[0].temperatureLow + '°C. ' + data.week[0].summary);
+        day2.textContent = (data.weekName[0] + punch + 's highest temperature is ' + data.week[1].temperatureHigh + '°C and lowest is ' + data.week[1].temperatureLow + '°C. ' + data.week[1].summary);
+        day3.textContent = (data.weekName[1] + punch + 's highest temperature is ' + data.week[2].temperatureHigh + '°C and lowest is ' + data.week[2].temperatureLow + '°C. ' + data.week[2].summary);
+        day4.textContent = (data.weekName[2] + punch + 's highest temperature is ' + data.week[3].temperatureHigh + '°C and lowest is ' + data.week[3].temperatureLow + '°C. ' + data.week[3].summary);
+        day5.textContent = (data.weekName[3] + punch + 's highest temperature is ' + data.week[4].temperatureHigh + '°C and lowest is ' + data.week[4].temperatureLow + '°C. ' + data.week[4].summary);
+        day6.textContent = (data.weekName[4] + punch + 's highest temperature is ' + data.week[5].temperatureHigh + '°C and lowest is ' + data.week[5].temperatureLow + '°C. ' + data.week[5].summary);
       }
     });
   });

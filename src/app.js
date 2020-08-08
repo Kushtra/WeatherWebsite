@@ -47,44 +47,22 @@ app.get('/weather', (req, res) => {
     if(error){
       return res.send({error});
     }
-    forecast(latitude, longitude, (error, {temperature, summary, day1min, day1max, day1sum, day2min, day2max, day2sum, day3min, day3max, day3sum, day4min, day4max, day4sum, day5min, day5max, day5sum, day6min, day6max, day6sum, }) => {
+    forecast(latitude, longitude, (error, {temperature, summary, week }) => {
       if(error){
         return res.send({error});
       }
-      let datetime = new Date();
-      const today = datetime.getDay();
-      const day2name = days(today+2);
-      const day3name = days(today+3);
-      const day4name = days(today+4);
-      const day5name = days(today+5);
-      const day6name = days(today+6);
+      
+      const weekName = [];
+      const today = new Date().getDay();
+      for(let i=2;i<7;i++){
+        weekName.push(days(today+i));
+      }
       res.send({
         location,
         temperature,
         summary,
-        day1min,
-        day1max,
-        day1sum,
-        day2name,
-        day2min,
-        day2max,
-        day2sum,
-        day3name,
-        day3min,
-        day3max,
-        day3sum,
-        day4name,
-        day4min,
-        day4max,
-        day4sum,
-        day5name,
-        day5min,
-        day5max,
-        day5sum,
-        day6name,
-        day6min,
-        day6max,
-        day6sum
+        week,
+        weekName
       });
     });
   });

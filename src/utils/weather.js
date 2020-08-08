@@ -8,7 +8,7 @@ const weather = (longitude, latitude, callback) => {
       callback('Unable to connecto to whether api, check your internet connection!', undefined);
     } else if(body.error) {
       callback('Unable to fetch whether for those coordinates, try again!', undefined);
-    } else {
+    }/* else {
       callback(undefined, {
         temperature: body.currently.temperature,
         summary: body.hourly.summary,
@@ -30,6 +30,12 @@ const weather = (longitude, latitude, callback) => {
         day6sum: body.daily.data[5].summary,
         day6max: Math.round(body.daily.data[5].temperatureHigh),
         day6min: Math.round(body.daily.data[5].temperatureLow)
+      });
+    }*/ else {
+      callback(undefined, {
+        temperature: body.currently.temperature,
+        summary: body.hourly.summary,
+        week: body.daily.data
       });
     }
   });
